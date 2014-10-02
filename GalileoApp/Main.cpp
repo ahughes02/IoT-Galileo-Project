@@ -47,5 +47,5 @@ void loop()
 	}
 
 	temperature = (float)analogRead(-1);
-	netSerial.print(temperature);
+	netSerial.println(temperature);
 }
