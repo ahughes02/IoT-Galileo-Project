@@ -15,7 +15,10 @@ int _tmain(int argc, _TCHAR* argv[])
 NetworkSerial netSerial;
 
 // Variables
-float temperature = 1.0f;
+float temperature; // stores temperature value
+int reading; // stores reading from seeed studio sensor
+float resistance; // stores resistancefrom seeed studio sensor
+int thermistor = 3975; // thermistor value
 byte incByte; 		// stores the next byte in the serial buffer
 char test; 		// test character to be compared in the while loop
 int exitLoop = 0; 	// variable is set to 1 when valid buffer is stored
@@ -46,8 +49,23 @@ void loop()
 		}
 	}
 
+	// Read temp from internal temp sensor
 	temperature = (float)analogRead(-1);
-	netSerial.print("Temperature is: ");
+	netSerial.print("CPU Temperature is: ");
 	netSerial.print(temperature);
-	netSerial.println("C");
+	netSerial.print("C ");
+
+	// Read temp from Seeed Studio sensor
+	reading = (float)analogRead(1);
+	resistance = (float)(1023 - reading) * 10000 / reading; //get the resistance of the sensor
+	temperature = 1 / (log(resistance / 10000) / thermistor + 1 / 298.15) - 273.15; //convert to temperature via datasheet
+	netSerial.print("External Temperature is: ");
+	netSerial.print(temperature);
+	netSerial.print("C ");
+
+	// Read light value from Seeed Studio sensor
+	int sensorValue = analogRead(0);
+	resistance = (float)(1023 - sensorValue) * 10 / sensorValue;
+	netSerial.print("Light sensor resistance is: ");
+	netSerial.println(resistance, DEC);
 }
