@@ -69,7 +69,8 @@ void loop()
 	netSerial.print(" A4:" + analogRead(A4));
 	netSerial.print(" A5:" + analogRead(A5));
 
-
+	// let web site know we are done printing
+	netSerial.print(" \n");
 
 	// Read temp from Seeed Studio sensor
 	/*reading = (float)analogRead(1);
