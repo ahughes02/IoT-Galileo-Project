@@ -55,19 +55,31 @@ void loop()
 	netSerial.print(temperature);
 	netSerial.print("C");
 
-	netSerial.print(" 0:" + analogRead(0));
-	netSerial.print(" 1:" + analogRead(1));
-	netSerial.print(" 2:" + analogRead(2));
-	netSerial.print(" 3:" + analogRead(3));
-	netSerial.print(" 4:" + analogRead(4));
-	netSerial.print(" 5:" + analogRead(4));
+	netSerial.print(" 0:"); 
+	netSerial.print(analogRead(0));
+	netSerial.print(" 1:");
+	netSerial.print(analogRead(1));
+	netSerial.print(" 2:");
+	netSerial.print(analogRead(2));
+	netSerial.print(" 3:");
+	netSerial.print(analogRead(3));
+	netSerial.print(" 4:");
+	netSerial.print(analogRead(4));
+	netSerial.print(" 5:");
+	netSerial.print(analogRead(5));
 
-	netSerial.print(" A0:" + analogRead(A0));
-	netSerial.print(" A1:" + analogRead(A1));
-	netSerial.print(" A2:" + analogRead(A2));
-	netSerial.print(" A3:" + analogRead(A3));
-	netSerial.print(" A4:" + analogRead(A4));
-	netSerial.print(" A5:" + analogRead(A5));
+	netSerial.print(" A0:");
+	netSerial.print(analogRead(A0));
+	netSerial.print(" A1:");
+	netSerial.print(analogRead(A1));
+	netSerial.print(" A2:");
+	netSerial.print(analogRead(A2));
+	netSerial.print(" A3:");
+	netSerial.print(analogRead(A3));
+	netSerial.print(" A4:");
+	netSerial.print(analogRead(A4));
+	netSerial.print(" A5:");
+	netSerial.print(analogRead(A5));
 
 	// let web site know we are done printing
 	netSerial.print(" \n");
