@@ -55,6 +55,9 @@ void loop()
 	netSerial.print(temperature);
 	netSerial.print("C");
 
+	// let web site know we are done printing
+	netSerial.print(" \n");
+
 	netSerial.print(" 0:"); 
 	netSerial.print(analogRead(0));
 	netSerial.print(" 1:");
@@ -67,6 +70,9 @@ void loop()
 	netSerial.print(analogRead(4));
 	netSerial.print(" 5:");
 	netSerial.print(analogRead(5));
+
+	// let web site know we are done printing
+	netSerial.print(" \n");
 
 	netSerial.print(" A0:");
 	netSerial.print(analogRead(A0));
