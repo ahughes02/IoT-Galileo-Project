@@ -53,54 +53,19 @@ void loop()
 	temperature = (float)analogRead(-1);
 	netSerial.print("CPU Temperature is: ");
 	netSerial.print(temperature);
-	netSerial.print("C");
-
-	// let web site know we are done printing
-	netSerial.print(" \n");
-
-	netSerial.print(" 0:"); 
-	netSerial.print(analogRead(0));
-	netSerial.print(" 1:");
-	netSerial.print(analogRead(1));
-	netSerial.print(" 2:");
-	netSerial.print(analogRead(2));
-	netSerial.print(" 3:");
-	netSerial.print(analogRead(3));
-	netSerial.print(" 4:");
-	netSerial.print(analogRead(4));
-	netSerial.print(" 5:");
-	netSerial.print(analogRead(5));
-
-	// let web site know we are done printing
-	netSerial.print(" \n");
-
-	netSerial.print(" A0:");
-	netSerial.print(analogRead(A0));
-	netSerial.print(" A1:");
-	netSerial.print(analogRead(A1));
-	netSerial.print(" A2:");
-	netSerial.print(analogRead(A2));
-	netSerial.print(" A3:");
-	netSerial.print(analogRead(A3));
-	netSerial.print(" A4:");
-	netSerial.print(analogRead(A4));
-	netSerial.print(" A5:");
-	netSerial.print(analogRead(A5));
-
-	// let web site know we are done printing
-	netSerial.print(" \n");
+	netSerial.println("C");
 
 	// Read temp from Seeed Studio sensor
-	/*reading = (float)analogRead(1);
+	reading = (float)analogRead(1);
 	resistance = (float)(1023 - reading) * 10000 / reading; //get the resistance of the sensor
 	temperature = 1 / (log(resistance / 10000) / thermistor + 1 / 298.15) - 273.15; //convert to temperature via datasheet
 	netSerial.print("External Temperature is: ");
 	netSerial.print(temperature);
-	netSerial.print("C ");
+	netSerial.println("C ");
 
 	// Read light value from Seeed Studio sensor
 	int sensorValue = analogRead(0);
 	resistance = (float)(1023 - sensorValue) * 10 / sensorValue;
 	netSerial.print("Light sensor resistance is: ");
-	netSerial.println(resistance, DEC);*/
+	netSerial.println(resistance, DEC);
 }
